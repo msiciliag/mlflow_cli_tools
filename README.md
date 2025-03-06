@@ -8,10 +8,7 @@ This repository contains a set of command-line interface (CLI) tools for managin
 git clone https://github.com/msiciliag/mlflow_cli_tools.git
 cd mlflow_cli_tools
 
-python -m venv venv
-source venv/bin/activate 
-
-pip install -r requirements.txt
+uv install
 ```
 
 
@@ -77,7 +74,7 @@ python restore_exp.py --experiment-names MyExperiment --experiment-names "MyExpe
 ### 4. `export_exp.py`
 
 Exports runs from a specified MLflow experiment to a CSV file, also exports metadata for future imports.
-> **_NOTE:_** Only exports parameters, metrics and artifacts, other details are not considered.
+> **_NOTE:_** Only exports parameters, metrics, tags and artifacts, other details are not considered.
 
 #### Usage
 ```sh
@@ -101,7 +98,7 @@ python export_exp.py --experiment-name MyExperiment --output-dir ./exports
 
 ### 5. `import_exp.py`
 
-Imports runs from a CSV file into a specified MLflow experiment.
+Imports runs from a CSV file into a specified MLflow experiment, imports parameters, metrics and artifacts.
 > **_NOTE:_**  This might not work as desired if the CSV provided is not an output of `export_exp.py` or it was modified
 
 #### Usage
